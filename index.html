@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/style.css"> 
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">  	
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+	
+
+
+  <title>Stroyportal</title>
+ </head>
+ <body>
+ 	<header>
+ 		<div id="top_menu">
+ 			<div class="frst_line">
+ 				<div class="container">
+	 				<div class="left_block">
+		 				<div class="region_box hover">
+		 					<span>Волгоградская область</span>
+		 				</div>
+		 			</div>
+	 				<div class="right_block">
+	 					<a href="/">Тендеры</a>
+	 					<a href="/">База подрядчиков</a>
+	 					<span class="other_service hover">Другие сервисы<i class="arrow_down"></i></span>
+	 				</div>
+	 			</div>
+ 			</div>
+ 			<div class="scnd_line">
+ 				<div class="container">
+ 					<img class="logo" src="img/logo.svg">
+ 					<div class="burger_menu hover">
+ 						<div class="burger">
+ 							<span></span>
+ 							<span></span>
+ 							<span></span>
+ 						</div>
+ 						<span>Каталог</span>
+ 					</div>
+ 					<div id="app" class="search_block autocomplete">
+ 						<input @blur="onBlur=true" @focus="onFocus = true;onBlur = false;" v-model="autocomplete" @keyDown="keyDown"  type="text" name="autoomplete" placeholder="Хочу найти...">
+ 						<div class="autocomplete-items">		      
+					    	<div :class="currentFocus == index ? 'autocomplete-active' : ''" v-for="(i, index) in arr" v-if= "onFocus && i.substr(0, autocomplete.length).toUpperCase() == autocomplete.toUpperCase()" @click="autocomplete = i; onFocus = false;">
+					    		<strong>{{i.substr(0, autocomplete.length)}}</strong>{{i.substr(autocomplete.length)}}
+					    	</div>
+					    </div>
+ 					</div>
+ 					<div class="list hover">
+ 						<div class="alert" ><img src="img/list.svg" alt="" title=""></div>
+ 						<span>Список</span>
+ 					</div>
+ 					<div class="user_photo">
+ 						<div class="user1"><span class="user_name">A</span></div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</header>
+ 	<main></main>
+ 	<footer></footer>
+ 	
+ 	<script src="js/script.js"></script>
+ </body>
+</html>
